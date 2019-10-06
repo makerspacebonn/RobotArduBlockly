@@ -2,7 +2,7 @@
 This is a fork of the Blockly for senseBox. It includes blocks to control motors that are connected via an Adafruit motor shield V1 for Arduino. One of these robots is the [SMARS](https://www.thingiverse.com/thing:2662828). This is work in progress and by no means bug free:-)
 
 ## Install
-* git clone https://github.com/makerspacebonn/RobotArduBlocklygit
+* git clone https://github.com/makerspacebonn/RobotArduBlockly.git
 * cd ardublockly
 * git submodule update --init --recursive
 * python start.py 
