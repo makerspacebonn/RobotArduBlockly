@@ -54,13 +54,15 @@ goog.require('Blockly.Arduino');
  * @return {array} Completed code with order of operation.
  */
 Blockly.Arduino['smars_motor'] = function (block) {
+  var motorNr = block.getFieldValue('MOTOR_NR');
+  var motorDir = block.getFieldValue('MOTOR_DIRECTION');
 
-  Blockly.Arduino.addInclude('smars', '#include <AFMotor.h>');
-  Blockly.Arduino.addDeclaration('smars_decl', 'smars_test_declaration;');
+  Blockly.Arduino.addInclude('smars', '#include <AFMotor.h>\n');
+  Blockly.Arduino.addDeclaration('smars_motor_' + motorNr, 'AF_DCMotor motor_' + motorNr + '(' + motorNr + ');\n');
 
   var setupCode = '//setupcode;';
-  Blockly.Arduino.addSetup('smars_' + setupCode, 'testaddsetup', true);
+  Blockly.Arduino.addSetup('smars_motor:' + motorNr, 'motor_' + motorNr + '.setSpeed(100);\n', true);
 
-  var code = '//smars code()';
+  var code = 'motor_' + motorNr + '.run(' + motorDir + ');\n';
   return code;
 };

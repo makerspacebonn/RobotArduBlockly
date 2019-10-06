@@ -59,8 +59,8 @@ Blockly.Blocks['smars_motor'] = {
   init: function () {
     this.appendDummyInput()
       .appendField("Move motor")
-      .appendField(new Blockly.FieldDropdown([["1", "MOTOR_1"], ["2", "MOTOR_2"], ["3", "MOTOR_3"], ["4", "MOTOR_4"]]), "MOTOR_NR")
-      .appendField(new Blockly.FieldDropdown([["forward", "MOTOR_FORWARD"], ["backward", "MOTOR_BACKWARD"]]), "MOTOR_DIRECTION");
+      .appendField(new Blockly.FieldDropdown([["Motor 1", "1"], ["Motor 2", "2"], ["Motor 3", "3"], ["Motor 4", "4"]]), "MOTOR_NR")
+      .appendField(new Blockly.FieldDropdown([["forward", "FORWARD"], ["backward", "BACKWARD"], ["stop", "RELEASE"]]), "MOTOR_DIRECTION");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(240);
