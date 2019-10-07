@@ -12,6 +12,10 @@ var Ardublockly = Ardublockly || {};
 Ardublockly.TOOLBOX_XML =
     '<xml>' +
     '  <sep></sep>' +
+    '  <category id="catSmars" name="SMARS" colour="60">' +
+    '    <block type="smars_motor"></block>' +
+    '  </category>' +
+    '  <sep></sep>' +
     '   <category id="catSenseBox_Sensor" name="senseBox Sensors" colour="120">' +
     '      <block type="sensebox_sensor_temp_hum"></block>' +
     '      <block type="sensebox_sensor_uv_light"></block>' +

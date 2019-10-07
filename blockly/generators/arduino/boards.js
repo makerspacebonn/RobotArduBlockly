@@ -22,7 +22,7 @@ goog.require('Blockly.Arduino');
  * @return {!array} Two dimensional array with the name and value for the
  *     digital IO pins.
  */
-Blockly.Arduino.Boards.generateDigitalIo = function(pinStart, pinEnd) {
+Blockly.Arduino.Boards.generateDigitalIo = function (pinStart, pinEnd) {
   var digitalIo = [];
   for (var i = pinStart; i < (pinEnd + 1); i++) {
     digitalIo.push([i.toString(), i.toString()]);
@@ -38,7 +38,7 @@ Blockly.Arduino.Boards.generateDigitalIo = function(pinStart, pinEnd) {
  * @return {!array} Two dimensional array with the name and value for the
  *     analogue IO pins.
  */
-Blockly.Arduino.Boards.generateAnalogIo = function(pinStart, pinEnd) {
+Blockly.Arduino.Boards.generateAnalogIo = function (pinStart, pinEnd) {
   var analogIo = [];
   for (var i = pinStart; i < (pinEnd + 1); i++) {
     analogIo.push(['A' + i.toString(), 'A' + i.toString()]);
@@ -56,27 +56,27 @@ Blockly.Arduino.Boards.generateAnalogIo = function(pinStart, pinEnd) {
  * @return {!Object} Duplicated object with the different argument data.
  */
 Blockly.Arduino.Boards.duplicateBoardProfile =
-    function(originalBoard, name_, description, compilerFlag) {
-  return {
-    name: name_,
-    description: description || originalBoard.description,
-    compilerFlag: compilerFlag || originalBoard.compilerFlag,
-    analogPins: originalBoard.analogPins,
-    digitalPins: originalBoard.digitalPins,
-    pwmPins: originalBoard.pwmPins,
-    serial: originalBoard.serial,
-    serialPins: originalBoard.serialPins,
-    serialSpeed: originalBoard.serialSpeed,
-    spi: originalBoard.spi,
-    spiPins: originalBoard.spiPins,
-    spiClockDivide: originalBoard.spiClockDivide,
-    i2c: originalBoard.i2c,
-    i2cPins: originalBoard.i2cPins,
-    i2cSpeed: originalBoard.i2cSpeed,
-    builtinLed: originalBoard.builtinLed,
-    interrupt: originalBoard.interrupt
-  }
-};
+  function (originalBoard, name_, description, compilerFlag) {
+    return {
+      name: name_,
+      description: description || originalBoard.description,
+      compilerFlag: compilerFlag || originalBoard.compilerFlag,
+      analogPins: originalBoard.analogPins,
+      digitalPins: originalBoard.digitalPins,
+      pwmPins: originalBoard.pwmPins,
+      serial: originalBoard.serial,
+      serialPins: originalBoard.serialPins,
+      serialSpeed: originalBoard.serialSpeed,
+      spi: originalBoard.spi,
+      spiPins: originalBoard.spiPins,
+      spiClockDivide: originalBoard.spiClockDivide,
+      i2c: originalBoard.i2c,
+      i2cPins: originalBoard.i2cPins,
+      i2cSpeed: originalBoard.i2cSpeed,
+      builtinLed: originalBoard.builtinLed,
+      interrupt: originalBoard.interrupt
+    }
+  };
 
 /** Object to contain all Arduino board profiles. */
 Blockly.Arduino.Boards.profiles = new Object();
@@ -88,28 +88,29 @@ Blockly.Arduino.Boards.profiles.sensebox_mcu = {
   compilerFlag: 'arduino:samd',
   analogPins: [['A1', 'A1'], ['A2', 'A2'], ['A3', 'A3'], ['A4', 'A4'], ['A5', 'A5'], ['A6', 'A6']],
   digitalPins: [['D1', '1'], ['D2', '2'], ['D3', '3'], ['D4', '4'], ['D5', '5'], ['D6', '6']],
-  digitalPinsLED: [['BUILTIN_1', '7'], ['BUILTIN_2', '8'],['D1', '1'], ['D2', '2'], ['D3', '3'], ['D4', '4'], ['D5', '5'], ['D6', '6']],
-  digitalPinsButton: [['on Board', '0'],['D1', '1'], ['D2', '2'], ['D3', '3'], ['D4', '4'], ['D5', '5'], ['D6', '6']],
+  digitalPinsLED: [['BUILTIN_1', '7'], ['BUILTIN_2', '8'], ['D1', '1'], ['D2', '2'], ['D3', '3'], ['D4', '4'], ['D5', '5'], ['D6', '6']],
+  digitalPinsButton: [['on Board', '0'], ['D1', '1'], ['D2', '2'], ['D3', '3'], ['D4', '4'], ['D5', '5'], ['D6', '6']],
   pwmPins: [['D1', '1'], ['D2', '2'], ['D3', '3'], ['D4', '4'], ['D5', '5'], ['D6', '6']],
-  serial: [['serial','SerialUSB'],['serial_1', 'Serial1'], ['serial_2', 'Serial2']],
-  serialPins: { 
-                SerialUSB: [['RX', ''], ['TX', '']], 
-                Serial1: [['RX', '11'], ['TX', '10']], 
-                Serial2: [['RX', '13'], ['TX', '12']]},
+  serial: [['serial', 'SerialUSB'], ['serial_1', 'Serial1'], ['serial_2', 'Serial2']],
+  serialPins: {
+    SerialUSB: [['RX', ''], ['TX', '']],
+    Serial1: [['RX', '11'], ['TX', '10']],
+    Serial2: [['RX', '13'], ['TX', '12']]
+  },
   serialSpeed: [['300', '300'], ['600', '600'], ['1200', '1200'],
-                ['2400', '2400'], ['4800', '4800'], ['9600', '9600'],
-                ['14400', '14400'], ['19200', '19200'], ['28800', '28800'],
-                ['31250', '31250'], ['38400', '38400'], ['57600', '57600'],
-                ['115200', '115200']],
+  ['2400', '2400'], ['4800', '4800'], ['9600', '9600'],
+  ['14400', '14400'], ['19200', '19200'], ['28800', '28800'],
+  ['31250', '31250'], ['38400', '38400'], ['57600', '57600'],
+  ['115200', '115200']],
   spi: [['SPI', 'SPI']],
   spiPins: { SPI: [['MOSI', '19'], ['MISO', '21'], ['SCK', '20']] },
   spiClockDivide: [['2 (8MHz)', 'SPI_CLOCK_DIV2'],
-                   ['4 (4MHz)', 'SPI_CLOCK_DIV4'],
-                   ['8 (2MHz)', 'SPI_CLOCK_DIV8'],
-                   ['16 (1MHz)', 'SPI_CLOCK_DIV16'],
-                   ['32 (500KHz)', 'SPI_CLOCK_DIV32'],
-                   ['64 (250KHz)', 'SPI_CLOCK_DIV64'],
-                   ['128 (125KHz)', 'SPI_CLOCK_DIV128']],
+  ['4 (4MHz)', 'SPI_CLOCK_DIV4'],
+  ['8 (2MHz)', 'SPI_CLOCK_DIV8'],
+  ['16 (1MHz)', 'SPI_CLOCK_DIV16'],
+  ['32 (500KHz)', 'SPI_CLOCK_DIV32'],
+  ['64 (250KHz)', 'SPI_CLOCK_DIV64'],
+  ['128 (125KHz)', 'SPI_CLOCK_DIV128']],
   i2c: [['I2C', 'Wire']],
   i2cPins: { Wire: [['SDA', '17'], ['SCL', '16']] },
   i2cSpeed: [['100kHz', '100000L'], ['400kHz', '400000L']],
@@ -124,25 +125,25 @@ Blockly.Arduino.Boards.profiles.uno = {
   compilerFlag: 'arduino:avr:uno',
   analogPins: Blockly.Arduino.Boards.generateAnalogIo(0, 5),
   digitalPins: Blockly.Arduino.Boards.generateDigitalIo(0, 13).concat(
-                   Blockly.Arduino.Boards.generateAnalogIo(0, 5)),
+    Blockly.Arduino.Boards.generateAnalogIo(0, 5)),
   pwmPins: [['3', '3'], ['5', '5'], ['6', '6'], ['9', '9'], ['10', '10'],
-            ['11', '11']],
+  ['11', '11']],
   serial: [['serial', 'Serial']],
   serialPins: { Serial: [['RX', '0'], ['TX', '1']] },
   serialSpeed: [['300', '300'], ['600', '600'], ['1200', '1200'],
-                ['2400', '2400'], ['4800', '4800'], ['9600', '9600'],
-                ['14400', '14400'], ['19200', '19200'], ['28800', '28800'],
-                ['31250', '31250'], ['38400', '38400'], ['57600', '57600'],
-                ['115200', '115200']],
+  ['2400', '2400'], ['4800', '4800'], ['9600', '9600'],
+  ['14400', '14400'], ['19200', '19200'], ['28800', '28800'],
+  ['31250', '31250'], ['38400', '38400'], ['57600', '57600'],
+  ['115200', '115200']],
   spi: [['SPI', 'SPI']],
   spiPins: { SPI: [['MOSI', '11'], ['MISO', '12'], ['SCK', '13']] },
   spiClockDivide: [['2 (8MHz)', 'SPI_CLOCK_DIV2'],
-                   ['4 (4MHz)', 'SPI_CLOCK_DIV4'],
-                   ['8 (2MHz)', 'SPI_CLOCK_DIV8'],
-                   ['16 (1MHz)', 'SPI_CLOCK_DIV16'],
-                   ['32 (500KHz)', 'SPI_CLOCK_DIV32'],
-                   ['64 (250KHz)', 'SPI_CLOCK_DIV64'],
-                   ['128 (125KHz)', 'SPI_CLOCK_DIV128']],
+  ['4 (4MHz)', 'SPI_CLOCK_DIV4'],
+  ['8 (2MHz)', 'SPI_CLOCK_DIV8'],
+  ['16 (1MHz)', 'SPI_CLOCK_DIV16'],
+  ['32 (500KHz)', 'SPI_CLOCK_DIV32'],
+  ['64 (250KHz)', 'SPI_CLOCK_DIV64'],
+  ['128 (125KHz)', 'SPI_CLOCK_DIV128']],
   i2c: [['I2C', 'Wire']],
   i2cPins: { Wire: [['SDA', 'A4'], ['SCL', 'A5']] },
   i2cSpeed: [['100kHz', '100000L'], ['400kHz', '400000L']],
@@ -157,7 +158,7 @@ Blockly.Arduino.Boards.profiles.nano_328 = {
   compilerFlag: 'arduino:avr:nano:cpu=atmega328',
   analogPins: Blockly.Arduino.Boards.generateAnalogIo(0, 7),
   digitalPins: Blockly.Arduino.Boards.generateDigitalIo(0, 13).concat(
-                   Blockly.Arduino.Boards.generateAnalogIo(0, 7)),
+    Blockly.Arduino.Boards.generateAnalogIo(0, 7)),
   pwmPins: Blockly.Arduino.Boards.profiles.uno.pwmPins,
   serial: Blockly.Arduino.Boards.profiles.uno.serial,
   serialPins: Blockly.Arduino.Boards.profiles.uno.serialPins,
@@ -172,11 +173,11 @@ Blockly.Arduino.Boards.profiles.nano_328 = {
   interrupt: Blockly.Arduino.Boards.profiles.uno.interrupt
 };
 Blockly.Arduino.Boards.profiles.nano_168 =
-    Blockly.Arduino.Boards.duplicateBoardProfile(
-        Blockly.Arduino.Boards.profiles.nano_328,
-        'Arduino Nano 168',
-        'Arduino Nano with ATmega168 compatible board',
-        'arduino:avr:nano:cpu=atmega168');
+  Blockly.Arduino.Boards.duplicateBoardProfile(
+    Blockly.Arduino.Boards.profiles.nano_328,
+    'Arduino Nano 168',
+    'Arduino Nano with ATmega168 compatible board',
+    'arduino:avr:nano:cpu=atmega168');
 
 /** Arduino Duemilanove boards profile (ATmega168p, ATmega328p). */
 Blockly.Arduino.Boards.profiles.duemilanove_168p = {
@@ -199,11 +200,11 @@ Blockly.Arduino.Boards.profiles.duemilanove_168p = {
   interrupt: Blockly.Arduino.Boards.profiles.uno.interrupt
 };
 Blockly.Arduino.Boards.profiles.duemilanove_328p =
-    Blockly.Arduino.Boards.duplicateBoardProfile(
-        Blockly.Arduino.Boards.profiles.duemilanove_168p,
-        'Arduino Duemilanove 328p',
-        'Arduino Duemilanove with ATmega328p compatible board',
-        'arduino:avr:diecimila');
+  Blockly.Arduino.Boards.duplicateBoardProfile(
+    Blockly.Arduino.Boards.profiles.duemilanove_168p,
+    'Arduino Duemilanove 328p',
+    'Arduino Duemilanove with ATmega328p compatible board',
+    'arduino:avr:diecimila');
 
 /** Arduino Mega board profile. */
 Blockly.Arduino.Boards.profiles.mega = {
@@ -215,9 +216,9 @@ Blockly.Arduino.Boards.profiles.mega = {
   //      logical but it is not clear on the arduino.cc website
   digitalPins: Blockly.Arduino.Boards.generateDigitalIo(0, 53),
   pwmPins: Blockly.Arduino.Boards.generateDigitalIo(2, 13).concat(
-               Blockly.Arduino.Boards.generateDigitalIo(44, 46)),
+    Blockly.Arduino.Boards.generateDigitalIo(44, 46)),
   serial: [['serial', 'Serial'], ['serial_1', 'Serial1'],
-           ['serial_2', 'Serial2'], ['serial_3', 'Serial3']],
+  ['serial_2', 'Serial2'], ['serial_3', 'Serial3']],
   serialPins: {
     Serial: [['TX', '0'], ['RX', '1']],
     Serial1: [['TX', '18'], ['TX', '19']],
@@ -234,7 +235,7 @@ Blockly.Arduino.Boards.profiles.mega = {
   i2cSpeed: [['100kHz', '100000L'], ['400kHz', '400000L']],
   builtinLed: Blockly.Arduino.Boards.profiles.uno.builtinLed,
   interrupt: [['interrupt0', '2'], ['interrupt1', '3'], ['interrupt2', '21'],
-              ['interrupt3', '20'], ['interrupt4', '19'], ['interrupt5', '18']]
+  ['interrupt3', '20'], ['interrupt4', '19'], ['interrupt5', '18']]
 };
 
 /** Arduino Leonardo board profile. */
@@ -243,10 +244,10 @@ Blockly.Arduino.Boards.profiles.leonardo = {
   description: 'Arduino Leonardo-compatible board',
   compilerFlag: 'arduino:avr:leonardo',
   analogPins: Blockly.Arduino.Boards.generateAnalogIo(0, 5).concat(
-                  [['A6', '4'], ['A7', '6'], ['A8', '8'], ['A9', '9'],
-                   ['A10', '10'], ['A11', '12']]),
+    [['A6', '4'], ['A7', '6'], ['A8', '8'], ['A9', '9'],
+    ['A10', '10'], ['A11', '12']]),
   digitalPins: Blockly.Arduino.Boards.generateDigitalIo(0, 13).concat(
-                   Blockly.Arduino.Boards.generateAnalogIo(0, 5)),
+    Blockly.Arduino.Boards.generateAnalogIo(0, 5)),
   pwmPins: Blockly.Arduino.Boards.profiles.uno.pwmPins.concat([['13', '13']]),
   serial: Blockly.Arduino.Boards.profiles.uno.serial,
   serialPins: Blockly.Arduino.Boards.profiles.uno.serialPins,
@@ -260,15 +261,15 @@ Blockly.Arduino.Boards.profiles.leonardo = {
   i2cSpeed: Blockly.Arduino.Boards.profiles.uno.i2cSpeed,
   builtinLed: Blockly.Arduino.Boards.profiles.uno.builtinLed,
   interrupt: [['interrupt0', '3'], ['interrupt1', '2'], ['interrupt2', '0'],
-              ['interrupt3', '1'], ['interrupt4', '17']]
+  ['interrupt3', '1'], ['interrupt4', '17']]
 };
 
 /** Arduino Yun board processor and profile is identical to Leonardo. */
 Blockly.Arduino.Boards.profiles.yun =
-    Blockly.Arduino.Boards.duplicateBoardProfile(
-        Blockly.Arduino.Boards.profiles.leonardo,
-        'Arduino Yun',
-        'Arduino Yun compatible board');
+  Blockly.Arduino.Boards.duplicateBoardProfile(
+    Blockly.Arduino.Boards.profiles.leonardo,
+    'Arduino Yun',
+    'Arduino Yun compatible board');
 
 /** Atmel Xplained mini boards profile (atmega328p, atmega328pb, atmega168pb).*/
 Blockly.Arduino.Boards.profiles.atmel_atmega328p_xplained_mini = {
@@ -277,7 +278,7 @@ Blockly.Arduino.Boards.profiles.atmel_atmega328p_xplained_mini = {
   compilerFlag: 'atmel:avr:atmega328p_xplained_mini',
   analogPins: Blockly.Arduino.Boards.profiles.uno.analogPins,
   digitalPins: Blockly.Arduino.Boards.profiles.uno.digitalPins.concat(
-      [['20', '20']]),
+    [['20', '20']]),
   pwmPins: Blockly.Arduino.Boards.profiles.uno.pwmPins,
   serial: Blockly.Arduino.Boards.profiles.uno.serial,
   serialPins: Blockly.Arduino.Boards.profiles.uno.serialPins,
@@ -293,17 +294,17 @@ Blockly.Arduino.Boards.profiles.atmel_atmega328p_xplained_mini = {
   builtinButton: [['BUILTIN_BUTTON', '20']]
 };
 Blockly.Arduino.Boards.profiles.atmel_atmega328pb_xplained_mini =
-    Blockly.Arduino.Boards.duplicateBoardProfile(
-        Blockly.Arduino.Boards.profiles.atmel_atmega328p_xplained_mini,
-        'Atmel atmega328pb Xplained mini',
-        'Atmel Xplained mini board with atmega328pb (Arduino Uno compatible)',
-        'atmel:avr:atmega328pb_xplained_mini');
+  Blockly.Arduino.Boards.duplicateBoardProfile(
+    Blockly.Arduino.Boards.profiles.atmel_atmega328p_xplained_mini,
+    'Atmel atmega328pb Xplained mini',
+    'Atmel Xplained mini board with atmega328pb (Arduino Uno compatible)',
+    'atmel:avr:atmega328pb_xplained_mini');
 Blockly.Arduino.Boards.profiles.atmel_atmega168pb_xplained_mini =
-    Blockly.Arduino.Boards.duplicateBoardProfile(
-        Blockly.Arduino.Boards.profiles.atmel_atmega328p_xplained_mini,
-        'Atmel atmega168pb Xplained mini',
-        'Atmel Xplained mini board with atmega168pb (Arduino Uno compatible)',
-        'atmel:avr:atmega168pb_xplained_mini');
+  Blockly.Arduino.Boards.duplicateBoardProfile(
+    Blockly.Arduino.Boards.profiles.atmel_atmega328p_xplained_mini,
+    'Atmel atmega168pb Xplained mini',
+    'Atmel Xplained mini board with atmega168pb (Arduino Uno compatible)',
+    'atmel:avr:atmega168pb_xplained_mini');
 
 /** ESP8266 for the Adafruit Huzzah. */
 Blockly.Arduino.Boards.profiles.esp8266_huzzah = {
@@ -312,7 +313,7 @@ Blockly.Arduino.Boards.profiles.esp8266_huzzah = {
   compilerFlag: 'esp8266:esp8266:generic',
   analogPins: [['A0', 'A0']],
   digitalPins: [['0', '0'], ['2', '2'], ['4', '4'], ['5', '5'], ['12', '12'],
-                ['13', '13'], ['14', '14'], ['15', '15'], ['16', '16']],
+  ['13', '13'], ['14', '14'], ['15', '15'], ['16', '16']],
   pwmPins: [['2', '2']],
   serial: [['serial', 'Serial']],
   serialPins: { Serial: [['RX', 'RX'], ['TX', 'TX']] },
@@ -334,9 +335,9 @@ Blockly.Arduino.Boards.profiles.esp8266_wemos_d1 = {
   compilerFlag: 'esp8266:esp8266:generic',
   analogPins: [['A0', 'A0']],
   digitalPins: [['D0', 'D0'], ['D1', 'D1'], ['D2', 'D2'], ['D3', 'D3'],
-                ['D4', 'D4'], ['D5', 'D5'], ['D6', 'D7'], ['D8', 'D8']],
-  pwmPins:  [['D1', 'D1'], ['D2', 'D2'], ['D3', 'D3'], ['D4', 'D4'],
-             ['D5', 'D5'], ['D6', 'D7'], ['D8', 'D8']],
+  ['D4', 'D4'], ['D5', 'D5'], ['D6', 'D7'], ['D8', 'D8']],
+  pwmPins: [['D1', 'D1'], ['D2', 'D2'], ['D3', 'D3'], ['D4', 'D4'],
+  ['D5', 'D5'], ['D6', 'D7'], ['D8', 'D8']],
   serial: [['serial', 'Serial']],
   serialPins: { Serial: [['RX', 'RX'], ['TX', 'TX']] },
   serialSpeed: Blockly.Arduino.Boards.profiles.uno.serialSpeed,
@@ -348,13 +349,13 @@ Blockly.Arduino.Boards.profiles.esp8266_wemos_d1 = {
   i2cSpeed: Blockly.Arduino.Boards.profiles.uno.i2cSpeed,
   builtinLed: [['BUILTIN_1', 'D4']],
   interrupt: [['D0', 'D0'], ['D1', 'D1'], ['D2', 'D2'], ['D3', 'D3'],
-              ['D4', 'D4'], ['D5', 'D5'], ['D6', 'D7'], ['D8', 'D8']]
+  ['D4', 'D4'], ['D5', 'D5'], ['D6', 'D7'], ['D8', 'D8']]
 };
 
 
 
 /** Set default profile to Arduino standard-compatible board */
-Blockly.Arduino.Boards.selected = Blockly.Arduino.Boards.profiles.sensebox_mcu;
+Blockly.Arduino.Boards.selected = Blockly.Arduino.Boards.profiles.uno;
 
 /**
  * Changes the Arduino board profile selected, which trigger a refresh of the
@@ -362,7 +363,7 @@ Blockly.Arduino.Boards.selected = Blockly.Arduino.Boards.profiles.sensebox_mcu;
  * @param {Blockly.Workspace} workspace Workspace to trigger the board change.
  * @param {string} newBoard Name of the new profile to set.
  */
-Blockly.Arduino.Boards.changeBoard = function(workspace, newBoard) {
+Blockly.Arduino.Boards.changeBoard = function (workspace, newBoard) {
   if (Blockly.Arduino.Boards.profiles[newBoard] === undefined) {
     console.log('Tried to set non-existing Arduino board: ' + newBoard);
     return;
@@ -386,23 +387,23 @@ Blockly.Arduino.Boards.changeBoard = function(workspace, newBoard) {
  * @param {!string} boardKey Name of the board profile property to fetch.
  */
 Blockly.Arduino.Boards.refreshBlockFieldDropdown =
-    function(block, fieldName, boardKey) {
-  var field = block.getField(fieldName);
-  var fieldValue = field.getValue();
-  var dataArray = Blockly.Arduino.Boards.selected[boardKey];
-  field.menuGenerator_ = dataArray;
+  function (block, fieldName, boardKey) {
+    var field = block.getField(fieldName);
+    var fieldValue = field.getValue();
+    var dataArray = Blockly.Arduino.Boards.selected[boardKey];
+    field.menuGenerator_ = dataArray;
 
-  var currentValuePresent = false;
-  for (var i = 0; i < dataArray.length; i++) {
-    if (fieldValue == dataArray[i][1]) {
-      currentValuePresent = true;
+    var currentValuePresent = false;
+    for (var i = 0; i < dataArray.length; i++) {
+      if (fieldValue == dataArray[i][1]) {
+        currentValuePresent = true;
+      }
     }
-  }
-  // If the old value is not present any more, add a warning to the block.
-  if (!currentValuePresent) {
-    block.setWarningText(
+    // If the old value is not present any more, add a warning to the block.
+    if (!currentValuePresent) {
+      block.setWarningText(
         'The old pin value ' + fieldValue + ' is no longer available.', 'bPin');
-  } else {
-    block.setWarningText(null, 'bPin');
-  }
-};
+    } else {
+      block.setWarningText(null, 'bPin');
+    }
+  };
