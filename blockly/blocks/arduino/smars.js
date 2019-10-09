@@ -68,3 +68,17 @@ Blockly.Blocks['smars_motor'] = {
     this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['smars_ultrasonic'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Read Ultrasonic Distance");
+    this.setOutput(true, "Number");
+    this.setColour(230);
+    this.setTooltip("Read HR04 Ultrasonic Sensor");
+    this.setHelpUrl("");
+  },
+  getBlockType: function () {
+    return Blockly.Types.NUMBER;
+  },
+};
