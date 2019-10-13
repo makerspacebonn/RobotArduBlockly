@@ -58,13 +58,27 @@ Blockly.Blocks.smars.HUE = 60;
 Blockly.Blocks['smars_motor'] = {
   init: function () {
     this.appendDummyInput()
-      .appendField("Bewege Motor")
+      .appendField("Bewege")
       .appendField(new Blockly.FieldDropdown([["Motor 1", "1"], ["Motor 2", "2"], ["Motor 3", "3"], ["Motor 4", "4"]]), "MOTOR_NR")
       .appendField(new Blockly.FieldDropdown([["vorwärts", "FORWARD"], ["rückwärts", "BACKWARD"], ["stop", "RELEASE"]]), "MOTOR_DIRECTION");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(240);
     this.setTooltip("SMARS Motorsteuerung");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['smars_speed'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Motorgeschwindigkeit")
+      .appendField(new Blockly.FieldDropdown([["Motor 1", "1"], ["Motor 2", "2"], ["Motor 3", "3"], ["Motor 4", "4"]]), "MOTOR_NR")
+      .appendField(new Blockly.FieldNumber(0, 0, 255), "Geschwindigkeit");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(240);
+    this.setTooltip("Setze SMARS Geschwindigkeit");
     this.setHelpUrl("");
   }
 };

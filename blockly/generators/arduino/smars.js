@@ -67,10 +67,24 @@ Blockly.Arduino['smars_motor'] = function (block) {
   return code;
 };
 
+Blockly.Arduino['smars_speed'] = function (block) {
+  var motorNr = block.getFieldValue('MOTOR_NR');
+  var speed = block.getFieldValue("Geschwindigkeit");
+
+  Blockly.Arduino.addInclude('smars', '#include <AFMotor.h>\n');
+  Blockly.Arduino.addDeclaration('smars_motor_' + motorNr, 'AF_DCMotor motor_' + motorNr + '(' + motorNr + ');\n');
+
+  //var setupCode = '//setupcode;';
+  //Blockly.Arduino.addSetup('smars_motor:' + motorNr, 'motor_' + motorNr + '.setSpeed(100);\n', true);
+
+  var code = 'motor_' + motorNr + '.setSpeed(' + speed + ');\n';
+  return code;
+};
+
 Blockly.Arduino['smars_ultrasonic'] = function (block) {
 
   Blockly.Arduino.addInclude('smars_ultrasonic', '#include <Ultrasonic.h>\n');
-  Blockly.Arduino.addDeclaration('smars_ultrasonic_decl', 'Ultrasonic ultrasonic(5, 6);\n');
+  Blockly.Arduino.addDeclaration('smars_ultrasonic_decl', 'Ultrasonic ultrasonic(A0, A1);\n');
 
   //var setupCode = '//setupcode;';
   //Blockly.Arduino.addSetup('smars_motor:' + motorNr, 'motor_' + motorNr + '.setSpeed(100);\n', true);

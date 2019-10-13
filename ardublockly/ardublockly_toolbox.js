@@ -14,6 +14,7 @@ Ardublockly.TOOLBOX_XML =
     '  <sep></sep>' +
     '  <category id="catSmars" name="SMARS" colour="60">' +
     '    <block type="smars_motor"></block>' +
+    '    <block type="smars_speed"></block>' +
     '    <block type="smars_ultrasonic"></block>' +
     '  </category>' +
     '  <sep></sep>' +
