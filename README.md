@@ -11,7 +11,7 @@ These are the software packages, that are needed to run RobotArduBlockly
 In a shell run: 
 ```
 git clone https://github.com/makerspacebonn/RobotArduBlockly.git
-cd ardublockly
+cd RobotArduBlockly
 git submodule update --init --recursive
 python start.py 
 ```
