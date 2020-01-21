@@ -8,11 +8,13 @@ These are the software packages, that are needed to run RobotArduBlockly
 * Python 2.7  https://www.python.org/downloads/release/python-2717/
 
 ## Install
-* git clone https://github.com/makerspacebonn/RobotArduBlockly.git
-* cd ardublockly
-* git submodule update --init --recursive
-* python start.py 
-
+In a shell run: 
+```
+git clone https://github.com/makerspacebonn/RobotArduBlockly.git
+cd ardublockly
+git submodule update --init --recursive
+python start.py 
+```
 
 # Blockly for senseBox
 Blockly for senseBox is a visual programming editor for the senseBox:edu. It is based on Google's [Blockly](https://developers.google.com/blockly/) and carlosperates [Ardublockly](https://github.com/carlosperate/ardublockly), which has been forked.
