@@ -13,9 +13,9 @@ In a shell run:
 git clone https://github.com/makerspacebonn/RobotArduBlockly.git
 cd RobotArduBlockly
 git submodule update --init --recursive
-python start.py 
+python start.py     
 ```
-
+On Windows, you don't need to run `python start.py`.  Just type `start.bat` in a cmd.exe to start RobotArduBlockly.
 # Blockly for senseBox
 Blockly for senseBox is a visual programming editor for the senseBox:edu. It is based on Google's [Blockly](https://developers.google.com/blockly/) and carlosperates [Ardublockly](https://github.com/carlosperate/ardublockly), which has been forked.
 
