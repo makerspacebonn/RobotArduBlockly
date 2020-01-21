@@ -3,9 +3,9 @@ This is a fork of the Blockly for senseBox. It includes blocks to control motors
 
 ## Prerequisites
 These are the software packages, that are needed to run RobotArduBlockly
-* GIT 
-* Arduino IDE
-* Python 2.7
+* GIT         https://git-scm.com/
+* Arduino IDE   https://www.arduino.cc/en/main/software
+* Python 2.7  https://www.python.org/downloads/release/python-2717/
 
 ## Install
 * git clone https://github.com/makerspacebonn/RobotArduBlockly.git
